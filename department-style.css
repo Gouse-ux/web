@@ -215,6 +215,11 @@ header .logo h1 {
     font-family: var(--font-heading);
 }
 
+.nav-logo {
+    height: 50px;
+    object-fit: contain;
+}
+
 header .logo span {
     color: var(--white);
 }
@@ -496,6 +501,8 @@ header .nav-links a:hover::after {
     box-shadow: var(--shadow-md);
     border: 1px solid var(--primary-soft);
     transition: 0.4s;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-card:hover {
@@ -547,12 +554,15 @@ header .nav-links a:hover::after {
 /* DETAILS */
 .event-details {
     padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-details h4 {
     font-size: 1.4rem;
     color: var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .event-meta {
@@ -572,6 +582,30 @@ header .nav-links a:hover::after {
     color: var(--text-gray);
     line-height: 1.6;
     margin-bottom: 20px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.event-info-list {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.info-item i {
+    color: var(--primary);
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
 }
 
 /* ========= SCHEDULE ========= */
@@ -1116,13 +1150,14 @@ footer {
 
 /* ================= PAYMENT NOTE ================= */
 .payment-note {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    border-left: 5px solid var(--primary);
+    background: var(--white);
+    border: 2px solid var(--primary-light);
+    border-left: 8px solid var(--primary);
     padding: var(--space-md) var(--space-lg);
     margin: 0 auto var(--space-xl);
     max-width: 800px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.1);
     display: flex;
     align-items: flex-start;
     gap: var(--space-md);
@@ -1137,7 +1172,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.03), transparent);
     transform: translateX(-100%);
     animation: shimmer 3s infinite;
 }
@@ -1153,15 +1188,22 @@ footer {
     color: var(--primary);
     flex-shrink: 0;
     margin-top: 5px;
+    filter: drop-shadow(0 2px 4px rgba(255, 102, 0, 0.2));
 }
 
 .payment-note-content h4 {
-    color: var(--primary);
+    color: var(--primary-dark);
     margin-bottom: var(--space-xs);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-family: var(--font-heading);
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.payment-note-content p {
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
 .payment-note-content ul {
@@ -1170,7 +1212,7 @@ footer {
 }
 
 .payment-note-content ul li {
-    color: #cccccc;
+    color: var(--text-dark);
     margin-bottom: 8px;
     font-size: 0.95rem;
     position: relative;
@@ -1178,7 +1220,7 @@ footer {
 }
 
 .payment-note-content ul li::before {
-    content: '•';
+    content: '→';
     color: var(--primary);
     position: absolute;
     left: 0;
@@ -1186,7 +1228,8 @@ footer {
 }
 
 .payment-note-content strong {
-    color: var(--white);
+    color: var(--primary-dark);
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {

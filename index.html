@@ -41,6 +41,7 @@
                     <span>TAR</span><span class="highlight">ANG</span>
                 </h1>
                 <div class="hero-year">2K26</div>
+                <p class="hero-theme">Empowering Innovations for Sustainable Development Goals</p>
                 <p class="hero-subtitle">A celebration of technology, creativity, and innovation at<br> Srinivasa
                     Ramanujan Institute of Technology.</p>
 
@@ -340,44 +341,7 @@
         </div>
     </footer>
 
-    <script>
-        // Countdown Timer (From Now → March 14, 2026 09:00 AM)
-
-        function updateCountdown() {
-
-            // ✅ Correct event date format
-            const eventDate = new Date("2026-03-13T09:00:00").getTime();
-
-            // Current time
-            const now = new Date().getTime();
-
-            // Time difference
-            const timeLeft = eventDate - now;
-
-            if (timeLeft > 0) {
-
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-                const seconds = Math.floor((timeLeft / 1000) % 60);
-
-                document.getElementById("days").textContent = days;
-                document.getElementById("hours").textContent = hours;
-                document.getElementById("minutes").textContent = minutes;
-                document.getElementById("seconds").textContent = seconds;
-
-            } else {
-                document.querySelector(".countdown").innerHTML = "<h3>🎉 Event Has Started!</h3>";
-            }
-        }
-
-        // Run every second
-        setInterval(updateCountdown, 1000);
-
-        // Run immediately when page loads
-        updateCountdown();
-    </script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>

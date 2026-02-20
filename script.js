@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize sticky header
     initStickyHeader();
+
+    // Initialize mobile menu
+    initMobileMenu();
+
+    // Initialize countdown timer
+    initCountdownTimer();
+
+    // Initialize image gallery
+    initImageGallery();
 });
 
 // Function to initialize animations
@@ -118,6 +127,8 @@ function initStickyHeader() {
     const hero = document.querySelector('.hero');
     let lastScrollPosition = 0;
 
+    if (!header || !hero) return;
+
     window.addEventListener('scroll', () => {
         const currentScrollPosition = window.pageYOffset;
 
@@ -165,16 +176,26 @@ function showNotification(message, type = 'info') {
 
 // Function to handle countdown timer
 function initCountdownTimer() {
-    const countdownElement = document.querySelector('.countdown');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-    if (countdownElement) {
-        // Set event date (March 25, 2025)
-        const eventDate = new Date('2026-03-14T09:00:00').getTime();
+    if (daysEl && hoursEl && minutesEl && secondsEl) {
+        // Set event date (March 13, 2026)
+        const eventDate = new Date('2026-03-13T09:00:00').getTime();
 
-        // Update countdown every second
-        const countdownInterval = setInterval(() => {
+        const update = () => {
             const now = new Date().getTime();
             const distance = eventDate - now;
+
+            if (distance < 0) {
+                const countdownSection = document.querySelector('.countdown');
+                if (countdownSection) {
+                    countdownSection.innerHTML = '<div class="container"><h3>🎉 Event Has Started!</h3></div>';
+                }
+                return;
+            }
 
             // Calculate days, hours, minutes, seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -183,31 +204,15 @@ function initCountdownTimer() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Update HTML
-            countdownElement.innerHTML = `
-                <div class="countdown-item">
-                    <span class="countdown-number">${days}</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number">${hours}</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number">${minutes}</span>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number">${seconds}</span>
-                    <span class="countdown-label">Seconds</span>
-                </div>
-            `;
+            daysEl.textContent = days;
+            hoursEl.textContent = hours;
+            minutesEl.textContent = minutes;
+            secondsEl.textContent = seconds;
+        };
 
-            // If countdown is over
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                countdownElement.innerHTML = '<div class="event-live">Event Live Now!</div>';
-            }
-        }, 1000);
+        // Update every second
+        setInterval(update, 1000);
+        update(); // Run immediately
     }
 }
 
@@ -218,8 +223,11 @@ function initImageGallery() {
     if (galleryItems.length > 0) {
         galleryItems.forEach(item => {
             item.addEventListener('click', function () {
-                const imgSrc = this.querySelector('img').getAttribute('src');
-                const imgAlt = this.querySelector('img').getAttribute('alt');
+                const img = this.querySelector('img');
+                if (!img) return;
+
+                const imgSrc = img.getAttribute('src');
+                const imgAlt = img.getAttribute('alt');
 
                 // Create modal
                 const modal = document.createElement('div');
@@ -256,7 +264,6 @@ function initImageGallery() {
     }
 }
 
-
 // Function to initialize mobile menu
 function initMobileMenu() {
     const toggle = document.getElementById('mobile-nav-toggle');
@@ -268,16 +275,22 @@ function initMobileMenu() {
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             nav.classList.toggle('active');
-            toggle.querySelector('i').classList.toggle('fa-bars');
-            toggle.querySelector('i').classList.toggle('fa-times');
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
         });
 
         // Close menu when clicking a link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
-                toggle.querySelector('i').classList.add('fa-bars');
-                toggle.querySelector('i').classList.remove('fa-times');
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             });
         });
 
@@ -285,44 +298,12 @@ function initMobileMenu() {
         document.addEventListener('click', (e) => {
             if (!nav.contains(e.target) && !toggle.contains(e.target)) {
                 nav.classList.remove('active');
-                toggle.querySelector('i').classList.add('fa-bars');
-                toggle.querySelector('i').classList.remove('fa-times');
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             }
         });
     }
 }
-
-// Initializing on load
-document.addEventListener('DOMContentLoaded', function () {
-    initAnimations();
-    initSmoothScroll();
-    initDepartmentCards();
-    initContactForm();
-    initStickyHeader();
-    initMobileMenu(); // Call it here
-});
-// Countdown Timer
-function updateCountdown() {
-    const eventDate = new Date('March 14, 2026 09:00:00').getTime();
-    const now = new Date().getTime();
-    const timeLeft = eventDate - now;
-
-    if (timeLeft > 0) {
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
-    } else {
-        document.querySelector('.countdown').innerHTML = '<h3>Event Has Started!</h3>';
-    }
-}
-
-// Update countdown every second
-setInterval(updateCountdown, 1000);
-updateCountdown();
-

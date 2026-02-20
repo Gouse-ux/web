@@ -8,899 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="department-style.css">
 </head>
-<!--
-        :root {
-            --primary: #ff6600;
-            --primary-light: #ff8533;
-            --primary-dark: #cc5200;
-            --secondary: #050505;
-            --secondary-light: #121212;
-            --text-light: #ffffff;
-            --text-dark: #f5f5f5;
-            --accent: #ff9900;
-            --background: #050505;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--secondary);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: rgba(5, 5, 5, 0.95);
-            color: var(--text-light);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            color: var(--text-light);
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(255, 102, 0, 0.4)), url('bg.jpeg') no-repeat center center/cover;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            padding: 0 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero h2 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--text-light);
-        }
-
-        /* Events Section */
-        .section {
-            padding: 80px 0;
-            background-color: var(--secondary);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h3 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-
-        .section-header h3::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-header p {
-            max-width: 700px;
-            margin: 20px auto 0;
-            color: #cccccc;
-            font-size: 1.1rem;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .event-card {
-            background-color: var(--secondary-light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .event-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .event-image {
-            height: 200px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .event-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .event-card:hover .event-image img {
-            transform: scale(1.1);
-        }
-
-        .event-date {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 1;
-        }
-
-        .category-badge {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background-color: var(--secondary);
-            color: var(--text-light);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .event-details {
-            padding: 25px;
-        }
-
-        .event-details h4 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .event-meta {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .event-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .event-meta i {
-            color: var(--primary);
-        }
-
-        .event-description {
-            margin-bottom: 20px;
-            color: #e0e0e0;
-            font-size: 0.95rem;
-        }
-
-        .event-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Countdown Timer */
-        .countdown {
-            background-color: var(--secondary);
-            color: var(--text-light);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .countdown h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .countdown-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background-color: var(--primary);
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .countdown-label {
-            margin-top: 10px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Speakers Section */
-        .speakers {
-            background-color: var(--secondary-light);
-        }
-
-        .speakers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .speaker-card {
-            background-color: var(--secondary);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .speaker-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .speaker-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .speaker-card:hover .speaker-image img {
-            transform: scale(1.1);
-        }
-
-        .speaker-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .speaker-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--text-light);
-        }
-
-        .speaker-info p {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: var(--secondary);
-            transition: color 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Schedule Section */
-        .schedule-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 10px;
-        }
-
-        .schedule-tab {
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .schedule-tab.active {
-            background-color: var(--primary);
-            color: var(--text-light);
-        }
-
-        .schedule-content {
-            margin-top: 30px;
-        }
-
-        .schedule-item {
-            background-color: var(--secondary-light);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .schedule-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .schedule-time {
-            min-width: 100px;
-        }
-
-        .schedule-time span {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .schedule-details {
-            flex: 1;
-        }
-
-        .schedule-details h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .schedule-details p {
-            color: #dddddd;
-            margin-bottom: 15px;
-        }
-
-        .schedule-speaker {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .speaker-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .speaker-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .speaker-name {
-            font-weight: 600;
-        }
-
-        .speaker-role {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Sponsors Section */
-        .sponsors {
-            background-color: var(--secondary);
-        }
-
-        .sponsors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-            align-items: center;
-        }
-
-        .sponsor-item {
-            background-color: var(--secondary-light);
-            padding: 30px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .sponsor-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .sponsor-item img {
-            max-width: 100%;
-            max-height: 80px;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .sponsor-item:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* Contact Section */
-        /* Contact Section */
-        .contact {
-            background-color: var(--secondary);
-            color: var(--text-light);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .contact-icon {
-            background-color: var(--primary);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .contact-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .contact-form {
-            background-color: var(--secondary-light);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: var(--text-light);
-            padding: 60px 0 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-widget h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-widget h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        .footer-about p {
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-links i {
-            color: var(--primary);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-social a {
-            background-color: var(--secondary);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .footer-newsletter p {
-            margin-bottom: 20px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        .newsletter-form button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 0 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .footer-bottom {
-            background-color: var(--secondary);
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom p {
-            margin: 0;
-        }
-
-        .footer-bottom span {
-            color: var(--primary);
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-            cursor: pointer;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                flex-direction: column;
-                background-color: var(--secondary);
-                padding: 30px;
-                align-items: center;
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.show {
-                left: 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-
-            .countdown-timer {
-                gap: 15px;
-            }
-
-            .countdown-value {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
-
-            .schedule-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .schedule-time {
-                min-width: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .speakers-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .countdown-timer {
-                gap: 10px;
-            }
-
-            .countdown-value {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-
-            .section-header h3 {
-                font-size: 2rem;
-            }
-
-            .schedule-tabs {
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .countdown-timer {
-                gap: 5px;
-            }
-
-            .countdown-value {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .countdown-label {
-                font-size: 0.8rem;
-            }
-
-            .sponsor-item {
-                padding: 15px;
-            }
-
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-
-            .section-header h3 {
-                font-size: 1.8rem;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
-    </style>-->
 </head>
 
 <body>
@@ -909,7 +17,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <i class="fas fa-code fa-2x" style="color: var(--primary);"></i>
+                    <img src="SRIT-LOGO.png" alt="SRIT Logo" class="nav-logo">
                     <h1>MECH <span>EVENTS</span></h1>
                 </div>
 
@@ -1014,11 +122,21 @@
                         <p class="event-description">Showcase your research and presentation skills in the Paper
                             Presentation event! Participants will present their well-structured papers, demonstrating
                             originality, analytical thinking, and effective communication. The event provides a platform
-                            to share innovative ideas and gain valuable insights.<br>
-                            📌 Registration Fee: ₹200/- <br>
-                            🏆 Exciting Prizes for Winners!
-
-                            Register now and make your mark! 🚀</p>
+                            to share innovative ideas and gain valuable insights.</p>
+                        <div class="event-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-thumbtack"></i>
+                                <span><strong>Registration Fee: ₹200/-</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-gift"></i>
+                                <span><strong>Prizes:</strong> Exciting Prizes for Winners!</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Register now and make your mark!!</span>
+                            </div>
+                        </div>
                         <div class="event-footer">
                             <a href="https://rzp.io/rzp/paper-mech" target="_blank" class="btn">Register Now</a>
                         </div>
@@ -1042,11 +160,21 @@
                         <p class="event-description">Showcase your creativity and technical expertise in the Model Expo!
                             This event provides a platform for participants to present innovative working models and
                             prototypes that solve real-world problems. Impress the judges with your innovation and
-                            engineering skills!<br>
-                            📌 Registration Fee: ₹300/- <br>
-                            🏆 Exciting Prizes for Winners!
-
-                            Register now and bring your ideas to life! 🚀🔧</p>
+                            engineering skills!</p>
+                        <div class="event-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-thumbtack"></i>
+                                <span><strong>Registration Fee: ₹300/-</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-gift"></i>
+                                <span><strong>Prizes:</strong> Exciting Prizes for Winners!</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Register now and bring your ideas to life!!</span>
+                            </div>
+                        </div>
                         <div class="event-footer">
                             <a href="https://rzp.io/rzp/cad-mech" target="_blank" class="btn">Register Now</a>
                         </div>
@@ -1068,11 +196,21 @@
                             <span><i class="fas fa-trophy"></i>Winner: 2000/- Runner-up: 1000/-
                             </span>
                         </div>
-                        <p class="event-description">Unleash your creativity and present your ideas visually in the Poster Presentation event! Participants will design and showcase informative and engaging posters, effectively communicating key concepts in a clear and impactful manner. This event encourages innovation, clarity, and artistic presentation skills.<br>
-                            📌 Registration Fee: ₹200/- <br>
-                            🏆 Exciting Prizes for Winners!
-                            
-                            Register now and let your ideas speak through visuals! 🎨</p>
+                        <p class="event-description">Unleash your creativity and present your ideas visually in the Poster Presentation event! Participants will design and showcase informative and engaging posters, effectively communicating key concepts in a clear and impactful manner. This event encourages innovation, clarity, and artistic presentation skills.</p>
+                        <div class="event-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-thumbtack"></i>
+                                <span><strong>Registration Fee: ₹200/-</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-gift"></i>
+                                <span><strong>Prizes:</strong> Exciting Prizes for Winners!</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Register now and let your ideas speak through visuals!!</span>
+                            </div>
+                        </div>
                         <div class="event-footer">
                             <a href="https://forms.gle/cERckj6b3aeL5mb47" target="_blank" class="btn">Register Now</a>
                         </div>
@@ -1098,11 +236,21 @@
                         <p class="event-description">Put your knowledge to the test in the Technical Quiz! This event
                             challenges participants with thought-provoking questions, testing their understanding of
                             fundamental and advanced concepts. Compete against the best minds and showcase your
-                            problem-solving skills in a fast-paced environment.<br>
-                            📌 Registration Fee: ₹200/- <br>
-                            🏆 Exciting Prizes for Winners!
-
-                            Register now and prove your technical expertise! ⚡🔍</p>
+                            problem-solving skills in a fast-paced environment.</p>
+                        <div class="event-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-thumbtack"></i>
+                                <span><strong>Registration Fee: ₹200/-</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-gift"></i>
+                                <span><strong>Prizes:</strong> Exciting Prizes for Winners!</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Register now and prove your technical expertise!!</span>
+                            </div>
+                        </div>
                         <div class="event-footer">
                             <a href="https://rzp.io/rzp/quiz-mech" target="_blank" class="btn">Register Now</a>
                         </div>
@@ -1125,12 +273,21 @@
                             <span><i class="fas fa-trophy"></i>Winner: 4000/- Runner-up: 3000/-
                             </span>
                         </div>
-                        <p class="event-description">Unleash your innovation in the IoT Hackathon! Build smart solutions using the power of the Internet of Things (IoT) and tackle real-world challenges. Collaborate, code, and create groundbreaking projects in just 5 hours! <br>
-
-                            📌 Registration Fee: ₹300/- <br>
-                            🏆 Exciting Prizes for Winners!
-                            
-                            Register now and shape the future with IoT! 🌍💡</p>
+                        <p class="event-description">Unleash your innovation in the IoT Hackathon! Build smart solutions using the power of the Internet of Things (IoT) and tackle real-world challenges. Collaborate, code, and create groundbreaking projects in just 5 hours!</p>
+                        <div class="event-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-thumbtack"></i>
+                                <span><strong>Registration Fee: ₹300/-</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-gift"></i>
+                                <span><strong>Prizes:</strong> Exciting Prizes for Winners!</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Register now and shape the future with IoT!!</span>
+                            </div>
+                        </div>
                         <div class="event-footer">
                             <a href="https://forms.google.com/cybersecurity-registration" target="_blank" class="btn">Register Now</a>
                         </div>
@@ -1222,7 +379,7 @@
                     </div>
                     <div class="schedule-details">
                         <h4>Lunch Break</h4>
-                        <p>Lunch will be provided for all attendees.</p>
+                        <p>Lunch will be available for purchase at food stalls.</p>
                     </div>
                 </div>
                 <div class="schedule-item">
