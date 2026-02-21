@@ -62,13 +62,20 @@
 }
 
 /* ================= BODY ================= */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: var(--font-body);
     background: var(--white);
     color: var(--text-dark);
     font-size: 16px;
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
 /* ================= TYPOGRAPHY ================= */
@@ -85,9 +92,17 @@ h6 {
 
 /* ================= CONTAINER ================= */
 .container {
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* ================= GLOBAL IMAGES ================= */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ================= GLOBAL SECTIONS ================= */
@@ -439,7 +454,8 @@ section#home {
     backdrop-filter: blur(10px);
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-lg);
-    min-width: 120px;
+    min-width: 100px;
+    flex: 1;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -756,7 +772,7 @@ section#home {
 }
 
 .contact-item:hover i {
-    color: var(--white);
+    color: var(--primary);
 }
 
 .contact-item p {
@@ -767,7 +783,7 @@ section#home {
 }
 
 .contact-item:hover p {
-    color: var(--white);
+    color: var(--primary);
 }
 
 .contact-form {

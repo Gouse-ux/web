@@ -62,13 +62,20 @@
 }
 
 /* ================= BODY ================= */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: var(--font-body);
     background: var(--white);
     color: var(--text-dark);
     font-size: 16px;
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
 /* ================= TYPOGRAPHY ================= */
@@ -85,9 +92,17 @@ h6 {
 
 /* ================= CONTAINER ================= */
 .container {
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* ================= GLOBAL IMAGES ================= */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ================= ANIMATIONS ================= */
@@ -489,7 +504,7 @@ header .nav-links a:hover::after {
 /* ========= EVENTS GRID ========= */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
